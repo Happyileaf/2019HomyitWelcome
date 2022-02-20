@@ -1,0 +1,434 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+ 
+}
+html,body{
+    width: 100%;
+    height: 100%;
+    /* font-size: calc(100% - 10px); */
+    overflow:hidden;
+ 
+}
+.houseBox img{
+    width: 100%;height: 100%;
+    position: relative;
+}
+.houseBox{
+    width: 100%;height: 100vh;
+    position: absolute;
+    top: 0;left: 0;
+    overflow: hidden;
+    z-index: 2000;
+    transform: translateX(0);
+    transition: transform 2s;
+    background-color: #111111;
+}
+/* 黑暗时刻 */
+.first{
+    position: absolute;
+    z-index: 100;
+    background-color: #111111;
+    width: 100%;height: 100%;
+   
+}
+.first>div>div{
+   width: 100%;height: 100%;
+    position: relative;
+    top: 0;left: 0;
+    animation: pull 2s ease-in-out  infinite;
+    animation-direction: alternate;
+    /* animation-play-state: paused; */
+    cursor: pointer;
+   
+    
+    
+}
+.first>div{
+    width: 3vw;height: 70vh;
+    top: 0vh;left:5vw;
+    transition: all 1s ease-in;
+    position: absolute;
+}
+@keyframes pull{
+    0%{
+        transform: translateY(-5vh);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+.first>div:nth-of-type(2){
+    width: 2vw;height: 18vh;
+    top: 38vh;left:8vw;
+    position: absolute;
+}
+/* 房子内部景象 */
+.house{
+    background-image: url('../../static/images/room02/房子.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;height: 100%;
+    position: relative;
+}
+/* 门 */
+.door{
+    position: absolute;
+    width: 5vw;height: 65vh;
+    top: 27vh;left: 0vw;
+    transform-origin: 0 50%;
+    transform: rotateY(90deg);
+    animation: open 4s ease-in-out 1s forwards;
+    cursor: pointer;
+}
+
+@keyframes open{
+    0%{
+        transform: rotateY(90deg);
+    }
+    100%{
+        transform: rotateY(0deg);
+    }
+}
+/* 窗户 */
+.window{
+    position: absolute;
+    width: 26vw;height: 55vh;
+    top: 0vh;left: 10vw;
+}
+.window>img{
+    z-index: 20;
+}
+.sunm{
+    position: absolute;
+    width: 15vw;height: 46vh;
+    top: 6vh;left: 7vw;
+    overflow: hidden;
+}
+.sunm>img{
+    width: 115vh;height: 115vh;
+    min-height: 790px;min-width: 790px;
+    position: absolute;
+    top: 10%;left:50%;
+    /* transform: rotate(60deg); */
+    animation: rota 40s linear  infinite;
+    transform-origin: 0% 40%;
+}
+
+@keyframes rota{
+    0%{
+        transform: rotate(60deg) translate(-50%,-10%);
+    }
+    100%{
+        transform: rotate(-300deg) translate(-50%,-10%);
+    }
+}
+/* @media all and (max-width:1200px){
+    .sunm>img{
+        top: -8vh;left:-20vw ;
+    }
+} */
+/* 桌子 */
+.desk{
+    position: absolute;
+    width: 32vw;height:58vh;
+    top: 24vh;left: 40vw;
+    opacity: 0;
+    animation: come 1s ease-in 4s forwards;
+}
+@keyframes come{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.desk2{
+    position: absolute;
+    width: 100%;
+    height: 77%;
+    bottom: 0;
+    left: 0;
+}
+.book{
+    position: absolute;
+    top: 3vh;left:28vw;
+    width: 6vw;height: 9vh;
+    cursor: pointer;
+}
+.book:hover{
+    transform: scale(1.2);
+
+}
+
+.hyC{
+    position: absolute;
+    width: 17vw;height: 9vh;
+    left: 7vw;top: -1vh;
+    color: #ffffff;
+    z-index: 20;
+    opacity: 0;
+    animation: come 2s ease-in 8s forwards;
+
+
+}
+.hyC span{
+    width: 100%;height: 100%;
+    font-size: 3vw;
+    font-weight: 1000;
+}
+/* 钟 */
+.houseBox .clock{
+    width: 22%;height: 20%;
+    left: 0vw;top: 0vh;
+    position: absolute;
+    transform: scale(0.75);
+    transform-origin: 0 0;
+    background-image:url('../../static/images/room02/时钟.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.houseBox .clock::before{
+    content: '';
+    width: 22%;height: 20%;
+    left: 39%;top: 38%;
+    position: absolute;
+    transform: scale(0.25);
+    border-radius: 100%;
+    background-color: #111111;
+}
+.houseBox .clock .min{
+    width: 2%;height: 34%;
+    left: 49%;top: 14%;
+    position: absolute;
+    transform-origin: 50% 100%;
+    animation: clockrota 1.67s linear infinite;
+}
+.houseBox .clock .hou{
+    width: 2%;height: 28%;
+    left: 49%;top: 19%;
+    position: absolute;
+    transform-origin: 50% 100%;
+    animation: clockrota 20s linear infinite;
+}
+@keyframes clockrota{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/* 挂件 */
+.frideg{
+    position: absolute;
+    width: 14vw;height:49vh;
+    top: 25vh;left: 78vw;
+    opacity: 0;
+    animation: come 1s linear 5s forwards;
+}
+/* 下一部分 */
+.next{
+    width: 8vw;height: 100%;
+    right: 0;top: 0;
+    position: absolute;
+  
+}
+/* 猫 */
+.next .cat{
+    position: absolute;
+    width: 100%;height: 22%;
+    top: 32vh;right: 0;
+    transform: translateX(100%);
+    animation: see 4s ease-in-out 5s infinite alternate; 
+    cursor: pointer;
+}
+@keyframes see{
+    0%{
+        transform: translateX(100%);
+    }
+    65%{
+        transform: translateX(100%);
+    }
+    80%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+
+/* 图标 */
+.icon{
+    position: absolute;
+    width: 10vw;height:16vh;
+    top: 5vh;left: 52vw;
+}
+.icon svg{
+    width: 100%;height: 100%;
+}
+.icon path{
+    fill-rule:evenodd;
+    clip-rule:evenodd;
+    fill: none;
+    stroke: #ffffff;
+    opacity: 0;
+    stroke-dasharray: 1500;
+    stroke-width: 3px;
+    animation: dec 5s cubic-bezier(0,0.23,1,.1) 5s forwards;
+}
+
+@keyframes dec{
+    0%{
+       
+        opacity: 0;
+        fill: none;
+        stroke-dashoffset: 1500;
+    }
+    30%{
+        opacity: 10;
+        fill: none;
+        stroke-dashoffset: 1500;
+    }
+    97%{
+        
+        fill: rgba(255, 255, 255, 0);
+        
+    }
+  
+    100%{
+        opacity: 10;
+        fill: rgba(255, 255, 255, 1);
+        stroke-dasharray: 1500 ;
+    }
+}
+
+/* 书架详情 */
+
+/* 背景 */
+.bookBox{
+    background: #4390C3;
+    z-index: 100;
+    width: 100%;height: 100%;
+    position: absolute;
+    top: 0;left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+    /* opacity: 0; */
+}
+/* 木板 */
+.wooden{
+    position: absolute;
+    top: 57vh;left: 29vw;
+    width: 44vw;height: 5vh;
+    z-index: 10;
+}
+@media all and (max-width:900px){
+    .wooden{
+        left: 20vw;
+       width: 65vw;
+    }
+}
+.thu{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top:39vh;left: 33vw;
+    width: 36vw;height: 20vh;
+    z-index: 50;
+}
+
+@media all and (max-width:900px){
+    .thu{
+        left: 26vw;
+        width: 53vw;
+    }
+    
+}
+
+.thu img{
+    width: 22%;height: 100%;
+    transition: transform 200ms ease-in-out;
+    cursor: none;
+}
+.thu img:hover{
+
+    transform: scale(1.05);
+    box-shadow: 0 0 5px #111111;
+
+}
+/* x图标 */
+.houseBox .draw{
+    /* color: #ffffff; */
+    /* font-size: 2vw; */
+    position: absolute;
+    top: 7vh;right: 16vw;
+    width: 3vw;height: 6vh;
+    opacity: 0.5;
+    display: none;
+    z-index: 1000;
+    transform: scale(1);
+    transition: transform 1s;
+    cursor: pointer;
+}
+.houseBox .draw:hover {
+    opacity: 1;
+    transform: scale(1.2);
+  
+}
+/* 18级介绍 */
+#bookshelf{
+    /* top: 50%;left:50%;
+    transform: translate(-50%,-50%); */
+    width: 50vw;height: 50vh;
+    position: absolute;
+    /* margin: 1% auto; */
+    background: #4390C3;
+    z-index: 100;
+    display: none;  
+}
+
+#bookshelf .turn-page{
+    -webkit-background-size:100% 100%;
+    background-size: 100% 100%;
+}
+#bookshelf div{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+
+    width: 100%;height: 100%;
+}
+#bookshelf .ever{
+    background-color: #ffffff;
+}
+#bookshelf .ever .content{
+    width: 80%;height: 80%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 0.08rem;
+}
+#bookshelf .ever .content span{
+    margin-bottom: 1vh;
+}
+#bookshelf img{
+    width: 100%;height: 100%;
+}
+/* 往届boss */
+#pastBoss{
+    display:none;
+    z-index: 100;
+}
+/* 人物介绍 */
+.bookBox .cha{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

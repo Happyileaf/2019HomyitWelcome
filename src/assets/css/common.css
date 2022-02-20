@@ -1,0 +1,12 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-size: calc(0.5rem + 10vw + 10vh);
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
